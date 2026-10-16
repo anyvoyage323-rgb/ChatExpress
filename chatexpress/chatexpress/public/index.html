@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatExpress • Direct</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e1306c'><circle cx='12' cy='12' r='10'/></svg>">
+</head>
+<body>
+  <div id="app">
+    <!-- Left Navigation Rail -->
+    <aside class="sidebar-rail">
+      <div class="rail-top">
+        <div class="rail-logo" id="btn-logo-home" title="ChatExpress">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+
+        <button class="rail-btn active" id="btn-tab-chats" title="Direct Messages">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.003 2.001a9.99 9.99 0 0 0-7.07 2.929 9.99 9.99 0 0 0-2.93 7.07c0 2.062.628 3.985 1.71 5.586l-1.666 4.996a1 1 0 0 0 1.264 1.264l4.996-1.666A9.957 9.957 0 0 0 12.003 22c5.523 0 10-4.477 10-10s-4.477-9.999-10-9.999zm0 18c-1.764 0-3.424-.52-4.832-1.423a1 1 0 0 0-.742-.125l-3.328 1.11 1.11-3.328a1 1 0 0 0-.125-.742A7.962 7.962 0 0 1 4.003 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+          </svg>
+          <span class="rail-badge" id="rail-total-unread" style="display: none;">0</span>
+        </button>
+
+        <button class="rail-btn" id="btn-open-search" title="Search Users">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.707 20.293l-5.395-5.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8a7.95 7.95 0 0 0 4.897-1.688l5.396 5.395a1 1 0 0 0 1.414-1.414zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z"/>
+          </svg>
+        </button>
+
+        <button class="rail-btn" id="btn-new-chat" title="New Message">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.003 2a10 10 0 1 0 10 10 10.011 10.011 0 0 0-10-10zm5 11h-4v4a1 1 0 0 1-2 0v-4h-4a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="rail-bottom">
+        <button class="rail-btn" id="btn-theme-toggle" title="Toggle Theme">
+          <svg viewBox="0 0 24 24" id="theme-icon">
+            <path d="M12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm10-9a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM18.364 5.636a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM7.757 16.243a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zm10.607 10.607a1 1 0 0 1-1.414 0l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1 0 1.414zM7.757 7.757a1 1 0 0 1-1.414 0l-.707-.707A1 1 0 0 1 7.05 5.636l.707.707a1 1 0 0 1 0 1.414z"/>
+          </svg>
+        </button>
+
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" 
+             alt="Profile" 
+             class="user-avatar-chip" 
+             id="btn-profile" 
+             title="Profile Settings">
+      </div>
+    </aside>
+
+    <!-- Conversations Inbox List -->
+    <section class="inbox-column">
+      <div class="inbox-header">
+        <div class="inbox-user-selector" id="inbox-current-username">
+          <span>chatexpress</span>
+        </div>
+        <div class="inbox-header-actions">
+          <button class="icon-action-btn" id="btn-compose" title="New Message">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M12.003 2a10 10 0 1 0 10 10 10.011 10.011 0 0 0-10-10zm5 11h-4v4a1 1 0 0 1-2 0v-4h-4a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Stories / Friends Bar -->
+      <div class="stories-bar" id="stories-container">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Search Input -->
+      <div class="inbox-search-wrap">
+        <div class="search-input-box">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.707 20.293l-5.395-5.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8a7.95 7.95 0 0 0 4.897-1.688l5.396 5.395a1 1 0 0 0 1.414-1.414zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z"/>
+          </svg>
+          <input type="text" id="inbox-search-input" placeholder="Search chats and people...">
+        </div>
+      </div>
+
+      <!-- Conversation Threads Scroll -->
+      <div class="conversations-scroll" id="conversations-list">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Main Chat Window -->
+    <main class="chat-main" id="chat-window">
+      <!-- 1. Empty State (No chat selected) -->
+      <div class="empty-chat-state" id="empty-state">
+        <div class="empty-chat-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.003 2.001a9.99 9.99 0 0 0-7.07 2.929 9.99 9.99 0 0 0-2.93 7.07c0 2.062.628 3.985 1.71 5.586l-1.666 4.996a1 1 0 0 0 1.264 1.264l4.996-1.666A9.957 9.957 0 0 0 12.003 22c5.523 0 10-4.477 10-10s-4.477-9.999-10-9.999zm0 18c-1.764 0-3.424-.52-4.832-1.423a1 1 0 0 0-.742-.125l-3.328 1.11 1.11-3.328a1 1 0 0 0-.125-.742A7.962 7.962 0 0 1 4.003 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+          </svg>
+        </div>
+        <h2 class="empty-chat-title">Your Messages</h2>
+        <p class="empty-chat-desc">Send private messages and photos to a friend or colleague with ChatExpress.</p>
+        <button class="btn-primary" id="btn-empty-start">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12.003 2a10 10 0 1 0 10 10 10.011 10.011 0 0 0-10-10zm5 11h-4v4a1 1 0 0 1-2 0v-4h-4a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2z"/>
+          </svg>
+          Send Message
+        </button>
+      </div>
+
+      <!-- 2. Active Chat View -->
+      <div id="active-chat-container" style="display: none; height: 100%; display: flex; flex-direction: column;">
+        <!-- Top bar -->
+        <header class="chat-header">
+          <div class="chat-partner-info" id="chat-header-profile">
+            <button class="icon-action-btn" id="btn-mobile-back" style="display: none;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+              </svg>
+            </button>
+            <div style="position: relative;">
+              <img src="" alt="" class="chat-header-avatar" id="chat-header-avatar">
+              <span class="online-dot" id="chat-header-online-dot" style="display: none;"></span>
+            </div>
+            <div class="chat-partner-text">
+              <h3 id="chat-header-fullname">User</h3>
+              <span id="chat-header-status">Active now</span>
+            </div>
+          </div>
+          <div class="chat-header-actions">
+            <button class="icon-action-btn" title="Audio Call (Simulated)">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.36-.67.25-1.02A11.36 11.36 0 0 1 8.56 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z"/>
+              </svg>
+            </button>
+            <button class="icon-action-btn" title="Video Call (Simulated)">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-action-btn" id="btn-chat-info" title="Details">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Message Thread -->
+        <div class="chat-messages-container" id="messages-container">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="chat-input-bar">
+          <!-- Quick Emoji Popover -->
+          <div class="emoji-popover" id="emoji-popover">
+            <button class="emoji-tile">❤️</button>
+            <button class="emoji-tile">😂</button>
+            <button class="emoji-tile">🔥</button>
+            <button class="emoji-tile">😍</button>
+            <button class="emoji-tile">👏</button>
+            <button class="emoji-tile">✨</button>
+            <button class="emoji-tile">🙌</button>
+            <button class="emoji-tile">😮</button>
+            <button class="emoji-tile">😢</button>
+            <button class="emoji-tile">💯</button>
+            <button class="emoji-tile">🎉</button>
+            <button class="emoji-tile">🚀</button>
+          </div>
+
+          <form class="input-container" id="chat-form">
+            <button type="button" class="input-icon-btn" id="btn-toggle-emoji" title="Insert Emoji">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+              </svg>
+            </button>
+
+            <button type="button" class="input-icon-btn" id="btn-attach-image" title="Send Photo">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+              </svg>
+            </button>
+            <input type="file" id="image-file-input" accept="image/*" style="display: none;">
+
+            <input type="text" 
+                   id="chat-message-input" 
+                   class="chat-text-input" 
+                   placeholder="Message..." 
+                   autocomplete="off">
+
+            <button type="submit" class="send-action-btn" id="btn-send-message">Send</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal 1: Auth (Login / Sign Up) -->
+  <div class="modal-overlay" id="modal-auth">
+    <div class="modal-card auth-box">
+      <div class="auth-logo">ChatExpress</div>
+      <p class="auth-subtitle">Real-time chatting inspired by Instagram Direct</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login">Log In</button>
+        <button class="auth-tab-btn" id="tab-signup">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="form-login" class="modal-body" style="padding: 0;">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="login-username" class="form-input" placeholder="e.g. alex_design" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-password" class="form-input" placeholder="Enter password" required>
+        </div>
+        <div class="auth-error-msg" id="login-error"></div>
+        <button type="submit" class="btn-primary" style="justify-content: center; height: 40px;">Log In</button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="form-signup" class="modal-body" style="padding: 0; display: none;">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="signup-username" class="form-input" placeholder="e.g. emily_travels" required>
+        </div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="signup-fullname" class="form-input" placeholder="e.g. Emily Davis" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signup-password" class="form-input" placeholder="Min 6 characters" required>
+        </div>
+        <div class="form-group">
+          <label>Bio (Optional)</label>
+          <input type="text" id="signup-bio" class="form-input" placeholder="A little about you...">
+        </div>
+        <div class="auth-error-msg" id="signup-error"></div>
+        <button type="submit" class="btn-primary" style="justify-content: center; height: 40px;">Create Account</button>
+      </form>
+
+      <!-- 1-Click Demo Logins for instant testing -->
+      <div class="demo-accounts-strip">
+        <div class="demo-title">Or 1-click test with demo users:</div>
+        <div class="demo-chips-grid" id="demo-chips-container">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: New Chat / User Search -->
+  <div class="modal-overlay" id="modal-search">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>New Message</h3>
+        <button class="modal-close-btn" id="btn-close-search">&times;</button>
+      </div>
+      <div class="inbox-search-wrap" style="padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+        <div class="search-input-box">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.707 20.293l-5.395-5.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8a7.95 7.95 0 0 0 4.897-1.688l5.396 5.395a1 1 0 0 0 1.414-1.414zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z"/>
+          </svg>
+          <input type="text" id="modal-search-input" placeholder="Search people by username or name...">
+        </div>
+      </div>
+      <div class="conversations-scroll" id="modal-search-results" style="max-height: 340px;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Profile & Settings -->
+  <div class="modal-overlay" id="modal-profile">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="modal-close-btn" id="btn-close-profile">&times;</button>
+      </div>
+      <form id="form-edit-profile" class="modal-body">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <img src="" id="profile-edit-avatar-preview" class="chat-header-avatar" style="width: 64px; height: 64px;">
+          <div style="flex: 1;">
+            <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Avatar Image URL</label>
+            <input type="url" id="profile-edit-avatar" class="form-input" style="width: 100%; margin-top: 4px;" placeholder="https://...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="profile-edit-fullname" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label>Bio</label>
+          <textarea id="profile-edit-bio" class="form-input" rows="3" style="resize: none;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-content: center;">Save Changes</button>
+        <button type="button" class="btn-primary" id="btn-logout" style="background-color: transparent; border: 1px solid var(--danger-color); color: var(--danger-color); justify-content: center; margin-top: 6px;">Log Out</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Media Preview -->
+  <div class="modal-overlay" id="modal-media" style="cursor: pointer;">
+    <div style="max-width: 85vw; max-height: 85vh;">
+      <img src="" id="full-media-img" style="max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: var(--shadow-md);">
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "chatexpress",
+  "version": "1.0.0",
+  "description": "Instagram-style real-time chat web application built with Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "chat",
+    "instagram",
+    "direct-messages",
+    "realtime",
+    "nodejs",
+    "chatexpress"
+  ],
+  "author": "ChatExpress Team",
+  "license": "MIT"
+}
